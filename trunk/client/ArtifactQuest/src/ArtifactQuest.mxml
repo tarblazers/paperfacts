@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   creationComplete="initApp(event)"
+			   
+			   minWidth="955" minHeight="600" pageTitle="Artifact Quest">
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script source="artifact_quest_helper.as"/>
+	
+	<s:BorderContainer id="bcnLogin" width="35%" height="20%" dropShadowVisible="true"
+					   horizontalCenter="0" verticalCenter="0">
+		<s:layout>
+			<s:BasicLayout/>
+		</s:layout>
+		<s:Form id="frmLogin" width="100%" height="100%" horizontalCenter="0" verticalCenter="0">
+			<s:layout>
+				<s:FormLayout/>
+			</s:layout>
+			<s:FormItem width="100%" label="User Name">
+				<s:TextInput id="txiUsername" width="100%" height="100%" prompt="Player's Login Id"/>
+			</s:FormItem>
+			<s:FormItem width="100%">
+				<s:layout>
+					<s:BasicLayout/>
+				</s:layout>
+				<s:Button id="btnLogin" right="0" bottom="0" label="Log-in"/>
+			</s:FormItem>
+		</s:Form>
+	</s:BorderContainer>
+</s:Application>
