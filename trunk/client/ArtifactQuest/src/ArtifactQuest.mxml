@@ -28,7 +28,7 @@
 				<s:layout>
 					<s:BasicLayout/>
 				</s:layout>
-				<s:Button id="btnLogin" right="0" bottom="0" label="Log-in"/>
+				<s:Button id="btnLogin" right="0" bottom="0" label="Log-in" click="loginClicked(event)"/>
 			</s:FormItem>
 		</s:Form>
 	</s:BorderContainer>
