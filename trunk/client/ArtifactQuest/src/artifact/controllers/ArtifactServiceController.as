@@ -236,7 +236,7 @@ package artifact.controllers
 		 	
 		 	artifactObtainedResultHandler(event);
 
-		 	Artifact.artifactUIController.updateCurrentSearchParty(updatedSearchParty);
+		 	ArtifactQuest.artifactUIController.updateCurrentSearchParty(updatedSearchParty);
 		 	ArtifactUIController.currentSearch.data=updatedSearchParty;
 		 	ArtifactUIController.currentSearchParties=ObjectUtil.copy(ArtifactUIController.currentSearchParties) as Array;
 		 	trace(gameProgressResponse.percentObjtained);
@@ -280,7 +280,7 @@ package artifact.controllers
 		 	
 		 	artifactObtainedResultHandler(event);
 			
-		 	Artifact.artifactUIController.updateCurrentSearchParty(updatedSearchParty);
+		 	ArtifactQuest.artifactUIController.updateCurrentSearchParty(updatedSearchParty);
 		 	ArtifactUIController.currentSearch.data=updatedSearchParty;
 		 	ArtifactUIController.currentSearchParties=ObjectUtil.copy(ArtifactUIController.currentSearchParties) as Array;
 		 	trace(gameProgressResponse.percentObjtained);
@@ -353,7 +353,7 @@ package artifact.controllers
 		 		Alert.show('Somebody already got the artifact');
 		 		gameProgressResponse.currentSearchParty.artifact.isActive=false;
 		 		//disable the item. assuming the item is cming as disabled	
-		 		Artifact.artifactUIController.updateCurrentSearchParty(gameProgressResponse.currentSearchParty);
+		 		ArtifactQuest.artifactUIController.updateCurrentSearchParty(gameProgressResponse.currentSearchParty);
 		 		ArtifactUIController.currentSearchParties=ObjectUtil.copy(ArtifactUIController.currentSearchParties) as Array;
 		 		return true;
 		 	}
@@ -425,7 +425,7 @@ package artifact.controllers
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,sellArtifactResultHandler);
 			ro.showBusyCursor=true;
-			Artifact.artifactUIController.removeItemFromInventoryUI(inventoryItem);
+			ArtifactQuest.artifactUIController.removeItemFromInventoryUI(inventoryItem);
 			ro.sellArtifact(artifactPrice,inventoryItem);
 				
 		 }

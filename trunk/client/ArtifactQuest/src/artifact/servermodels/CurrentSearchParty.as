@@ -15,11 +15,11 @@ package artifact.servermodels
     	public var artifact:ArtifactInfo;
     	
     	public function get numberOfCommonFriends():int{
-    		return Artifact.artifactUIController.findCommonFriendsById(artifact.id);
+    		return ArtifactQuest.artifactUIController.findCommonFriendsById(artifact.id);
     	}
     	
     	public function get commonFriends():Array{
-    		return Artifact.artifactUIController.giveCommonFriendsProfileByArtifactId(artifact.id);
+    		return ArtifactQuest.artifactUIController.giveCommonFriendsProfileByArtifactId(artifact.id);
     	}
 
 	}

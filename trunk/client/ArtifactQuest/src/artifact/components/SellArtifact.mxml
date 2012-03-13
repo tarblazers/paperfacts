@@ -29,7 +29,7 @@
 				PopUpManager.removePopUp(this);
 			}
 			public function sellArtifact():void{
-				Artifact.artifactUIController.sellArtifact(_gold,_data);
+				ArtifactQuest.artifactUIController.sellArtifact(_gold,_data);
 				closeMe();
 			}
 		]]>

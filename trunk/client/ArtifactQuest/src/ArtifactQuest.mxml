@@ -1,35 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
-			   xmlns:s="library://ns.adobe.com/flex/spark"
-			   xmlns:mx="library://ns.adobe.com/flex/mx"
-			   creationComplete="initApp(event)"
-			   
-			   minWidth="955" minHeight="600" pageTitle="Artifact Quest">
-	
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
-	
-	<fx:Script source="artifact_quest_helper.as"/>
-	
-	<s:BorderContainer id="bcnLogin" width="35%" height="20%" dropShadowVisible="true"
-					   horizontalCenter="0" verticalCenter="0">
-		<s:layout>
-			<s:BasicLayout/>
-		</s:layout>
-		<s:Form id="frmLogin" width="100%" height="100%" horizontalCenter="0" verticalCenter="0">
-			<s:layout>
-				<s:FormLayout/>
-			</s:layout>
-			<s:FormItem width="100%" label="User Name">
-				<s:TextInput id="txiUsername" width="100%" height="100%" prompt="Player's Login Id"/>
-			</s:FormItem>
-			<s:FormItem width="100%">
-				<s:layout>
-					<s:BasicLayout/>
-				</s:layout>
-				<s:Button id="btnLogin" right="0" bottom="0" label="Log-in" click="loginClicked(event)"/>
-			</s:FormItem>
-		</s:Form>
-	</s:BorderContainer>
-</s:Application>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" pageTitle="Artifact Quest" layout="absolute" styleName="loginApp" xmlns:components="artifact.components.*" creationComplete="creationComplete()">
+	<mx:states>
+		<mx:State name="loggedin">
+			<mx:RemoveChild target="{textinput1}"/>
+			<mx:RemoveChild target="{button1}"/>
+			<mx:RemoveChild target="{text1}"/>
+			<mx:SetProperty name="styleName" value="loggedInApp"/>
+			<mx:AddChild position="lastChild">
+				<mx:Canvas y="{topPadding}" width="90%" height="85%" horizontalCenter="0"  id="cvsMain">
+					<components:Home  y="{imgBanner.height}" width="100%" height="{cvsMain.height-imgBanner.height}" id="home">
+					</components:Home>
+					<mx:Image x="75" width="532" height="71" id="imgBanner" y="0" source="com/artifact/resources/images/banner.png"/>
+				</mx:Canvas>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	<mx:Script>
+		<![CDATA[
+			import artifact.constants.ArtifactConstants;
+			import artifact.constants.ArtifactServiceConstants;
+			import artifact.controllers.ArtifactServiceController;
+			import artifact.controllers.ArtifactUIController;
+			
+			import mx.controls.Alert;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.rpc.http.mxml.HTTPService;
+			
+			public const topPadding:int=50;
+			
+			public const bottomPadding:int=50;
+			
+			public static var artifactUIController:ArtifactUIController=new ArtifactUIController();
+			public static var artifactServiceController:ArtifactServiceController=new ArtifactServiceController();
+			public function login(event:MouseEvent):void{
+				
+				ArtifactQuest.artifactUIController.checkUsername(textinput1.text);
+				
+			}
+			
+			public function creationComplete():void{
+				/*var httpServ:HTTPService=new HTTPService;
+				httpServ.url="server.txt";
+				httpServ.method="get";
+				httpServ.send();
+				httpServ.addEventListener(ResultEvent.RESULT,function resultEvent(event:ResultEvent):void{
+					ArtifactServiceConstants.SERVER_URL=event.result as String
+				});
+				httpServ.addEventListener(FaultEvent.FAULT,function faultEvent(event:FaultEvent):void{
+					Alert.show('unable to load the settings');
+					Alert.show(event.fault.toString())
+					
+				});
+				*/
+								
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Style source="artifact/resources/css/artifact.css"/>
+	<mx:TextInput y="237"  horizontalCenter="20" id="textinput1"/>
+	<mx:Button y="267" label="Login" horizontalCenter="-25" id="button1" click="login(event)"/>
+	<mx:Text y="234" text="Enter Adventurer&#xa;&#x9;&#x9;" height="32" color="#000000" fontFamily="Georgia" fontSize="16" horizontalCenter="-134" id="text1"/>
+</mx:Application>
