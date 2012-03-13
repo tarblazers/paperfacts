@@ -39,42 +39,42 @@ package artifact.controllers
 		public static var currentSearch:Search;
 		
 		public function checkUsername(username:String):void{
-			Artifact.artifactServiceController.authenticate(username);
+			ArtifactQuest.artifactServiceController.authenticate(username);
 		}
 		
 		
 		public function getAllArtifacts():void{
-			Artifact.artifactServiceController.getAllArtifacts();
+			ArtifactQuest.artifactServiceController.getAllArtifacts();
 		}
 		
 		public function startNewSearchParty(artifact:ArtifactInfo):void{
-			Artifact.artifactServiceController.startNewSearchParty(artifact);
+			ArtifactQuest.artifactServiceController.startNewSearchParty(artifact);
 		}
 		public function getSpyQuestions(gameProgress:GameProgress):void{
-			Artifact.artifactServiceController.getSpyQuestions(gameProgress);
+			ArtifactQuest.artifactServiceController.getSpyQuestions(gameProgress);
 		}
 		
 		public function grantSpyProgress(answers:Array,gameProgress:GameProgress):void{
-			Artifact.artifactServiceController.grantSpyProgress(answers,gameProgress);
+			ArtifactQuest.artifactServiceController.grantSpyProgress(answers,gameProgress);
 		}
 		
 		public function grantScoutProgress(gameProgress:GameProgress):void{
-			Artifact.artifactServiceController.grantScoutProgress(gameProgress);
+			ArtifactQuest.artifactServiceController.grantScoutProgress(gameProgress);
 		}
 		public function grantBuyProgress(gameProgress:GameProgress):void{
-			Artifact.artifactServiceController.grantBuyProgress(gameProgress);
+			ArtifactQuest.artifactServiceController.grantBuyProgress(gameProgress);
 		}
 		
 		public function grantShareProgress(gameProgress:GameProgress):void{
-			Artifact.artifactServiceController.grantShareProgress(gameProgress);
+			ArtifactQuest.artifactServiceController.grantShareProgress(gameProgress);
 		}
 		
 		public function addSkill(type:String):void{
-			Artifact.artifactServiceController.addSkill(type);
+			ArtifactQuest.artifactServiceController.addSkill(type);
 		}
 		
 		public function sellArtifact(artifactPrice:int,inventoryItem:Inventory):void{
-			Artifact.artifactServiceController.sellArtifact(artifactPrice,inventoryItem);
+			ArtifactQuest.artifactServiceController.sellArtifact(artifactPrice,inventoryItem);
 		}
 		
 		

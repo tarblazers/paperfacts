@@ -181,7 +181,7 @@
 				var gameProgress:GameProgress=new GameProgress;
 				gameProgress.csp=_data;
 				gameProgress.friend = null;
-				Artifact.artifactUIController.grantScoutProgress(gameProgress);
+				ArtifactQuest.artifactUIController.grantScoutProgress(gameProgress);
 				//experienceGained=59;
 				//currentState='report'
 			}
@@ -205,7 +205,7 @@
 						gameProgress.csp=currentSearchParty;
 						gameProgress.friend=friend;
 						this.gameProgress=gameProgress;
-						Artifact.artifactUIController.getSpyQuestions(gameProgress);	
+						ArtifactQuest.artifactUIController.getSpyQuestions(gameProgress);	
 					}
 					//currentState ='questions'
 				}
@@ -219,7 +219,7 @@
 					answer.answer=eachChild.radiogroup1.selection?eachChild.radiogroup1.selection.label:null;
 					answerArray.push(answer);	
 				}
-				Artifact.artifactUIController.grantSpyProgress(answerArray,gameProgress);
+				ArtifactQuest.artifactUIController.grantSpyProgress(answerArray,gameProgress);
 			}
 			public function goToBuyReport():void{
 				//experienceGained=66;
@@ -230,7 +230,7 @@
 					gameProgress.csp=_data;
 					gameProgress.friend = friend;
 					
-					Artifact.artifactUIController.grantBuyProgress(gameProgress);
+					ArtifactQuest.artifactUIController.grantBuyProgress(gameProgress);
 				}
 			}
 			
@@ -241,7 +241,7 @@
 					gameProgress.csp=_data;
 					gameProgress.friend = friend;
 					
-					Artifact.artifactUIController.grantShareProgress(gameProgress);
+					ArtifactQuest.artifactUIController.grantShareProgress(gameProgress);
 				}
 			}
 			

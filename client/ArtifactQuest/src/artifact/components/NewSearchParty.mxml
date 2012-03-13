@@ -25,7 +25,7 @@
 			public function startNewParty():void{
 				if(lstMain.selectedItem){
 					var selectedItem:ArtifactInfo=lstMain.dataProvider[lstMain.selectedIndex] as ArtifactInfo
-					Artifact.artifactUIController.startNewSearchParty(selectedItem);				
+					ArtifactQuest.artifactUIController.startNewSearchParty(selectedItem);				
 				}else{
 					Alert.show('Please Select an item');
 				}

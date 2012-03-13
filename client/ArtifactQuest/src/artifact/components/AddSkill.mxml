@@ -49,7 +49,7 @@
 		<![CDATA[
 			import mx.controls.Alert;
 			public function addSkill(type:String):void{
-				Artifact.artifactUIController.addSkill(type);	
+				ArtifactQuest.artifactUIController.addSkill(type);	
 			}
 		]]>
 	</mx:Script>

@@ -42,7 +42,7 @@
 			
 			public var newSearchPartyPopUp:NewSearchParty;
 			public function startNewParty():void{
-				Artifact.artifactUIController.getAllArtifacts();
+				ArtifactQuest.artifactUIController.getAllArtifacts();
 				var popup:NewSearchParty=PopUpManager.createPopUp(Application.application as DisplayObject,NewSearchParty,true) as NewSearchParty;
 				this.newSearchPartyPopUp=popup;
 				PopUpManager.centerPopUp(popup);	
