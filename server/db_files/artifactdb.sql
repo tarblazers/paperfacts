@@ -245,13 +245,13 @@ CREATE TABLE IF NOT EXISTS `userprofile` (
 --
 
 INSERT INTO `userprofile` (`id`, `userid`, `age`, `politicalview`, `religion`, `language`, `humour`, `country`, `school`, `job`, `favgame`, `imgurl`) VALUES
-(1, 1, 26, 'Right', 'Christianity', 'English', 'cheeky', 'UK', 'London University', 'Consultant', 'Prince of Persia', 'com/artifact/resources/images/avatar/Albert-Einstein.jpg'),
-(2, 2, 26, 'Neutral', 'Jewish', 'English', 'plain', 'USA', 'MIT', 'Researcher', 'World of Warcraft', 'com/artifact/resources/images/avatar/Angry-PC-User.gif'),
-(3, 3, 27, 'Neutral', 'Agnostic', 'English', 'cheesy', 'UK', 'Leeds University', 'Software Engineer', 'Maple Story', 'com/artifact/resources/images/avatar/Badass-Cat.jpg'),
-(4, 4, 24, 'Left', 'Agnostic', 'English', 'intelligent', 'UK', 'London University', 'Game Developer', 'Defence of the Ancients', 'com/artifact/resources/images/avatar/cathelmet.jpg'),
-(5, 5, 27, 'Left', 'Christianity', 'English', 'intelligent', 'UK', 'Leeds University', 'Specialist', 'Halo', 'com/artifact/resources/images/avatar/ba-na-na.gif'),
-(6, 6, 25, 'Neutral', 'Hinduism', 'English', 'slapstick', 'India', 'DAV', 'Software Developer', 'Delta Force', 'com/artifact/resources/images/avatar/disappointed000.gif'),
-(7, 7, 26, 'Neutral', 'Christianity', 'English', 'slapstick', 'USA', 'MIT', 'Manager', 'Counter Strike', 'com/artifact/resources/images/avatar/yoda-dance.gif');
+(1, 1, 26, 'Right', 'Christianity', 'English', 'cheeky', 'UK', 'London University', 'Consultant', 'Prince of Persia', 'artifact/resources/images/avatar/Albert-Einstein.jpg'),
+(2, 2, 26, 'Neutral', 'Jewish', 'English', 'plain', 'USA', 'MIT', 'Researcher', 'World of Warcraft', 'artifact/resources/images/avatar/Angry-PC-User.gif'),
+(3, 3, 27, 'Neutral', 'Agnostic', 'English', 'cheesy', 'UK', 'Leeds University', 'Software Engineer', 'Maple Story', 'artifact/resources/images/avatar/Badass-Cat.jpg'),
+(4, 4, 24, 'Left', 'Agnostic', 'English', 'intelligent', 'UK', 'London University', 'Game Developer', 'Defence of the Ancients', 'artifact/resources/images/avatar/cathelmet.jpg'),
+(5, 5, 27, 'Left', 'Christianity', 'English', 'intelligent', 'UK', 'Leeds University', 'Specialist', 'Halo', 'artifact/resources/images/avatar/ba-na-na.gif'),
+(6, 6, 25, 'Neutral', 'Hinduism', 'English', 'slapstick', 'India', 'DAV', 'Software Developer', 'Delta Force', 'artifact/resources/images/avatar/disappointed000.gif'),
+(7, 7, 26, 'Neutral', 'Christianity', 'English', 'slapstick', 'USA', 'MIT', 'Manager', 'Counter Strike', 'artifact/resources/images/avatar/yoda-dance.gif');
 
 --
 -- Constraints for dumped tables

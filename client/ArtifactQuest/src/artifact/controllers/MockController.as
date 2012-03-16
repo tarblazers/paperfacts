@@ -23,17 +23,17 @@ package artifact.controllers
 		public static function getFriendsList():ArrayCollection{
 			var friendList:ArrayCollection=new ArrayCollection;
 			var firstObj:Object=new Object;
-			firstObj.imgSrc="com/artifact/resources/images/avatar/Albert-Einstein.jpg";
+			firstObj.imgSrc="artifact/resources/images/avatar/Albert-Einstein.jpg";
 			var secondObj:Object=new Object;
-			secondObj.imgSrc="com/artifact/resources/images/avatar/Angry-PC-User.gif"
+			secondObj.imgSrc="artifact/resources/images/avatar/Angry-PC-User.gif"
 			var thirdObj:Object=new Object;
-			thirdObj.imgSrc="com/artifact/resources/images/avatar/Badass-Cat.jpg"
+			thirdObj.imgSrc="artifact/resources/images/avatar/Badass-Cat.jpg"
 			var fourthObj:Object=new Object;
-			fourthObj.imgSrc="com/artifact/resources/images/avatar/cathelmet.jpg"
+			fourthObj.imgSrc="artifact/resources/images/avatar/cathelmet.jpg"
 			var fifthObj:Object=new Object;
-			fifthObj.imgSrc="com/artifact/resources/images/avatar/ba-na-na.gif"
+			fifthObj.imgSrc="artifact/resources/images/avatar/ba-na-na.gif"
 			var sixthObj:Object=new Object;
-			sixthObj.imgSrc="com/artifact/resources/images/avatar/disappointed000.gif"
+			sixthObj.imgSrc="artifact/resources/images/avatar/disappointed000.gif"
 			friendList.addItem(firstObj);
 			friendList.addItem(secondObj);
 			friendList.addItem(thirdObj);

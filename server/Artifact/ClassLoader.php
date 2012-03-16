@@ -64,8 +64,6 @@ require_once AMFPHP_ROOTPATH.'Services/artifact/login/model/User.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/login/dao/LoginDAO.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/login/service/LoginService.php';
 
-session_start();
-
 require_once AMFPHP_ROOTPATH.'Services/artifact/profile/model/UserProfile.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/profile/model/CompleteProfileWrapper.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/profile/util/ProfileUtil.php';
@@ -94,10 +92,6 @@ require_once AMFPHP_ROOTPATH.'Services/artifact/inventory/util/InventoryUtil.php
 require_once AMFPHP_ROOTPATH.'Services/artifact/inventory/model/Inventory.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/inventory/dao/InventoryDAO.php';
 
-
-
-
-
-
+session_start();
 
 ?>
