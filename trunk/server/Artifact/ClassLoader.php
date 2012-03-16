@@ -54,6 +54,50 @@ require_once AMFPHP_ROOTPATH . 'Core/FilterManager.php';
 require_once AMFPHP_ROOTPATH . 'Core/HttpRequestGatewayFactory.php';
 require_once AMFPHP_ROOTPATH . 'Core/PluginManager.php';
 
+//artifact
+require_once AMFPHP_ROOTPATH.'/Plugins/AmfphpLogger/AmfphpLogger.php';
+
+require_once AMFPHP_ROOTPATH.'Services/artifact/db/connections/Connection.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/db/properties/Database.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/db/properties/ServerConstants.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/login/model/User.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/login/dao/LoginDAO.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/login/service/LoginService.php';
+
+session_start();
+
+require_once AMFPHP_ROOTPATH.'Services/artifact/profile/model/UserProfile.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/profile/model/CompleteProfileWrapper.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/profile/util/ProfileUtil.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/profile/dao/UserProfileDAO.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/profile/service/ProfileService.php';
+
+require_once AMFPHP_ROOTPATH.'Services/artifact/friends/dao/FriendsDAO.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/friends/util/FriendsUtil.php';
+
+require_once AMFPHP_ROOTPATH.'Services/artifact/game/dao/GameDAO.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/GameProfile.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/game/util/GameUtil.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/Questioniar.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/GameProgressResponse.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/ProgressType.php';
+
+require_once AMFPHP_ROOTPATH.'Services/artifact/searchparty/util/CurrentSearchPartyUtil.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/searchparty/dao/CurrentSearchPartyDAO.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/searchparty/model/CurrentSearchParty.php';
+
+require_once AMFPHP_ROOTPATH.'Services/artifact/info/util/ArtifactUtil.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/info/dao/ArtifactDAO.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/info/model/ArtifactInfo.php';
+
+require_once AMFPHP_ROOTPATH.'Services/artifact/inventory/util/InventoryUtil.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/inventory/model/Inventory.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/inventory/dao/InventoryDAO.php';
+
+
+
+
+
 
 
 ?>

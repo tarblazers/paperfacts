@@ -21,7 +21,12 @@ class LoginDAO {
 
         $tempArray=mysql_fetch_array($result);
         
+        $user = null;
+        
         if(mysql_num_rows($result) == 1){
+            
+            AmfphpLogger::logMessage("user authenticated");
+            
             $user=new User();
             $user->id=$tempArray['id'];
             $user->username=$tempArray['username'];
