@@ -10,7 +10,7 @@
 				<mx:Canvas y="{topPadding}" width="90%" height="85%" horizontalCenter="0"  id="cvsMain">
 					<components:Home  y="{imgBanner.height}" width="100%" height="{cvsMain.height-imgBanner.height}" id="home">
 					</components:Home>
-					<mx:Image x="75" width="532" height="71" id="imgBanner" y="0" source="com/artifact/resources/images/banner.png"/>
+					<mx:Image x="75" width="532" height="71" id="imgBanner" y="0" source="artifact/resources/images/banner.png"/>
 				</mx:Canvas>
 			</mx:AddChild>
 		</mx:State>
@@ -33,6 +33,7 @@
 			
 			public static var artifactUIController:ArtifactUIController=new ArtifactUIController();
 			public static var artifactServiceController:ArtifactServiceController=new ArtifactServiceController();
+			
 			public function login(event:MouseEvent):void{
 				
 				ArtifactQuest.artifactUIController.checkUsername(textinput1.text);

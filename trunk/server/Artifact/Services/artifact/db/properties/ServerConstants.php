@@ -10,7 +10,7 @@
  *
  * @author PCOne
  */
-class DBConstants {
+class ServerConstants {
     //put your code here
     const SPY="Spy";
     const SCOUT="Scout";
