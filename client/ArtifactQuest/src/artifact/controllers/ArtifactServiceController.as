@@ -54,14 +54,13 @@ package artifact.controllers
 		public function authenticateResultHandler(event:ResultEvent):void{
 		//### chk  
 			trace('>>>>>>>>>>>>>>>>>>  '+event.result);
-					
 		//###
 			var user:User=event.result as User;
 			if(user){
 				ArtifactUIController.loggedInUser=user
 				getProfile();
 			}else{
-				Alert.show('Wrong username','Authentication');
+				Alert.show('Invalid username','Authentication');
 			}
 		}
 		/**
