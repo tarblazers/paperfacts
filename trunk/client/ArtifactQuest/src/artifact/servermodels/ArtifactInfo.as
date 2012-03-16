@@ -1,6 +1,6 @@
 package artifact.servermodels
 {
-	[RemoteClass(alias="com.artifact.info.model.ArtifactInfo")]
+	[RemoteClass(alias="artifact.info.model.ArtifactInfo")]
     [Bindable]
 	public class ArtifactInfo
 	{

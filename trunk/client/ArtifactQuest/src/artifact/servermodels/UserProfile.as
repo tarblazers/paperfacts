@@ -1,6 +1,6 @@
 package artifact.servermodels
 {
-	[RemoteClass(alias="com.artifact.profile.model.UserProfile")]
+	[RemoteClass(alias="artifact.profile.model.UserProfile")]
     [Bindable]
 	public class UserProfile
 	{
