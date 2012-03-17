@@ -2,13 +2,13 @@
 <mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"   width="203">
 	<mx:Script>
 		<![CDATA[
-			import artifact.servermodels.Questioniar;
+			import artifact.servermodels.Questionnaire;
 			import artifact.models.QuestionModel;
 			
 			[Bindable]
-			private var _data:Questioniar;
+			private var _data:Questionnaire;
 			override public function set data(value:Object):void{
-				this._data=value as Questioniar;
+				this._data=value as Questionnaire;
 			}
 		]]>
 	</mx:Script>

@@ -41,26 +41,41 @@
 			}
 			
 			public function creationComplete():void{
-				/*var httpServ:HTTPService=new HTTPService;
+				var httpServ:HTTPService=new HTTPService();
 				httpServ.url="server.txt";
 				httpServ.method="get";
 				httpServ.send();
 				httpServ.addEventListener(ResultEvent.RESULT,function resultEvent(event:ResultEvent):void{
-					ArtifactServiceConstants.SERVER_URL=event.result as String
+					ArtifactServiceConstants.SERVER_URL=event.result as String;
+					//trace('server url : '+ArtifactServiceConstants.SERVER_URL)
+					
 				});
 				httpServ.addEventListener(FaultEvent.FAULT,function faultEvent(event:FaultEvent):void{
-					Alert.show('unable to load the settings');
+					Alert.show('Unable to load settings');
 					Alert.show(event.fault.toString())
 					
 				});
-				*/
+				
+			}
+			
+			protected function keyPressed(event:KeyboardEvent):void
+			{
+				// checking for Enter key-press
+				event.keyCode == 13 ? button1.dispatchEvent(new MouseEvent(MouseEvent.CLICK)) : doNothing();
 								
+			}
+			
+			private function doNothing():Object
+			{
+				// no action
+				
+				return null;
 			}
 			
 		]]>
 	</mx:Script>
 	<mx:Style source="artifact/resources/css/artifact.css"/>
-	<mx:TextInput y="237"  horizontalCenter="20" id="textinput1"/>
+	<mx:TextInput y="237"  horizontalCenter="20" id="textinput1" keyDown="keyPressed(event)"/>
 	<mx:Button y="267" label="Login" horizontalCenter="-25" id="button1" click="login(event)"/>
-	<mx:Text y="234" text="Enter Adventurer&#xa;&#x9;&#x9;" height="32" color="#000000" fontFamily="Georgia" fontSize="16" horizontalCenter="-134" id="text1"/>
+	<mx:Text y="234" text="Enter Collector&#xa;&#x9;&#x9;" height="32" color="#000000" fontFamily="Georgia" fontSize="16" horizontalCenter="-134" id="text1"/>
 </mx:Application>

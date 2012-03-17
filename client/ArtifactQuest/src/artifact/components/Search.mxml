@@ -115,7 +115,7 @@
 		</ns1:CustomProgressBar>
 		<mx:TextArea x="39" y="122" width="254" height="188" alpha="0" fontSize="12" id="txaDesc" editable="false" text="{_data.artifact.desc}">
 		</mx:TextArea>
-		<mx:Image x="364" y="122" width="258" height="176"   source="/artifact/resources/images/mapimage.png" maintainAspectRatio="false" id="image1">
+		<mx:Image x="364" y="122" width="258" height="176"   source="@Embed(source='/artifact/resources/images/mapimage.png')" maintainAspectRatio="false" id="image1">
 		</mx:Image>
 	</mx:Canvas>
 	<mx:Canvas x="47.5" y="414" width="642" height="148" styleName="loginApp" id="canvas2">

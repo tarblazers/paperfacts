@@ -28,7 +28,7 @@
 			public function openAddSkillPopUp():void{
 				var popUp:AddSkill=PopUpManager.createPopUp(Application.application as DisplayObject,AddSkill,true) as AddSkill;
 				popUp.initialize();
-				popUp.data=MockController.giveDummySkillData();
+				//popUp.data=MockController.giveDummySkillData();
 				PopUpManager.centerPopUp(popUp);
 				//PopUpManager.bringToFront(popUp);
 			}

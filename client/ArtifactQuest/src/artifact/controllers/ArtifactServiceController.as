@@ -19,7 +19,7 @@ package artifact.controllers
 	import mx.utils.ObjectUtil;
 	
 	/**
-	 *This class takes care of the server interaction all the services call is diverted from this class 
+	 *This class takes care of server interaction, all service calls are diverted from this class 
 	 * 
 	 */
 	public class ArtifactServiceController
@@ -28,11 +28,12 @@ package artifact.controllers
 		{
 		}
 		public function myFaultHandler(event:FaultEvent):void{
-			Alert.show(event.message.toString(),'Authentication')
+			Alert.show(event.message.toString(),'Server')
 		}
+		
 		/**
 		 * Authentication
-		 * This function checks the username from the services 
+		 * This function checks the username from the server
 		 **/
 		public function authenticate(username:String):void{
 			var ro:RemoteObject=new RemoteObject;
@@ -42,20 +43,23 @@ package artifact.controllers
 			ro.source=ArtifactServiceConstants.LOGIN_SERVICE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,authenticateResultHandler);
-			trace('Logging in with username : ',username)
-		//### TBC	
+			//trace('Logging in with username : before ro call : ',username)
+		
 			ro.authenticate(username);
 			
 		}
+		
 		/**
 		 * This is the result handler of the authentication remote call 
 		 * and allows user to go to the home page if the username is correct
 		 **/
 		public function authenticateResultHandler(event:ResultEvent):void{
-		//### chk  
-			trace('>>>>>>>>>>>>>>>>>>  '+event.result);
-		//###
-			var user:User=event.result as User;
+			//trace('>>>>>>>>>>>>>>>>>>  '+event.result);
+			
+			var user:User;
+			
+			event.result!=null?user=event.result as User:user=null;
+			
 			if(user){
 				ArtifactUIController.loggedInUser=user
 				getProfile();
@@ -63,20 +67,22 @@ package artifact.controllers
 				Alert.show('Invalid username','Authentication');
 			}
 		}
+		
 		/**
 		 * Get Profile
 		 * This function is called after the authentication is done so that user profile can 
-		 * be obtained  from the services 
+		 * be obtained  from the server
 		 * 
 		 **/
 		 public function getProfile():void{
-		 	var ro:RemoteObject=new RemoteObject;
+		 	var ro:RemoteObject=new RemoteObject();
 			ro.endpoint=ArtifactServiceConstants.SERVER_URL;
 			ro.destination=ArtifactServiceConstants.GET_PROFILE;
 			ro.showBusyCursor=true;
 			ro.source=ArtifactServiceConstants.GET_PROFILE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,getProfileResultHandler);
+			
 			ro.getProfile();
 		 }
 		 
@@ -94,13 +100,14 @@ package artifact.controllers
 		 	ArtifactUIController.friendSearchParties=completeProfile.friendSearchPartiesArray;
 		 	ArtifactUIController.myArtifacts=completeProfile.myArtifacts;
 		 	//trace(completeProfile.currentSearchPartiesArray);
+			
 		 	Application.application.currentState='loggedin';
 		 }
 		
 		/**
 		 * 
-		 * Get All Artifacts 
-		 * This method gets all the active artifacts from the server 
+		 * Get All Artifacts. 
+		 * This method gets all the active artifacts from the server. 
 		 * 
 		 **/
 		public function getAllArtifacts():void{
@@ -111,8 +118,10 @@ package artifact.controllers
 			ro.source=ArtifactServiceConstants.GET_ARTIFACTS_SERVICE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,getAllArtifactsResultHandler);
+			
 			ro.getActiveArtifacts();	
 		}
+		
 		/**
 		 * 
 		 * This is the result handler of the getAllArtifacts
@@ -121,12 +130,12 @@ package artifact.controllers
 			var resultArray:Array=event.result as Array;
 			Application.application.home.newSearchPartyPopUp.lstMain.dataProvider=resultArray;
 			var artifactInfo:ArtifactInfo;
-			trace('Artifacts List : ',event.result)
+			//trace('Artifacts List : ',event.result)
 		}
 		
 		/**
 		 * Start a new search party
-		 * This methid start a new search party by calling the services
+		 * This method starts a new search party by calling the services
 		 * 
 		 **/
 		 
@@ -137,6 +146,7 @@ package artifact.controllers
 			ro.source=ArtifactServiceConstants.NEW_SEARCH_PARTY_SERVICE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,startNewSearchPartyResultHandler);
+			
 			ro.startSearchParty(artifact);	
 		 }
 		 
@@ -163,7 +173,7 @@ package artifact.controllers
 		 /**
 		 * 
 		 * Get Spy Questions
-		 * This method get the spy questions from the services
+		 * This method gets spy questions from the services
 		 * 
 		 **/
 		 
@@ -174,6 +184,7 @@ package artifact.controllers
 			ro.source=ArtifactServiceConstants.GAME_SERVICE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,getSpyQuestionsResultHandler);
+			
 			ro.getSpyQuestions(gameProgress);	
 		 }
 		 
@@ -192,7 +203,7 @@ package artifact.controllers
 		 
 		 /**
 		 * Grant Spy Progress
-		 * This method grant spy progress to the used based on the correct answers
+		 * This method grants spy progress based on the correct answers
 		 * 
 		 **/
 		 
@@ -203,6 +214,7 @@ package artifact.controllers
 			ro.source=ArtifactServiceConstants.GAME_SERVICE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,grantSpyProgressResultHandler);
+			
 			ro.grantSpyProgress(answers,gameProgress);	
 		 }
 		 /**
@@ -282,14 +294,14 @@ package artifact.controllers
 		 	ArtifactQuest.artifactUIController.updateCurrentSearchParty(updatedSearchParty);
 		 	ArtifactUIController.currentSearch.data=updatedSearchParty;
 		 	ArtifactUIController.currentSearchParties=ObjectUtil.copy(ArtifactUIController.currentSearchParties) as Array;
-		 	trace(gameProgressResponse.percentObjtained);
-		 	trace('end');
+		 	//trace(gameProgressResponse.percentObjtained);
+		 	//trace('end');
 		 }
 		 
 		 
 		 /**
 		 * Grant Buy Progress
-		 * This method gives user the buy progress
+		 * This method gives the buy progress
 		 * 
 		 **/
 		 public function grantBuyProgress(gameProgress:GameProgress):void{
@@ -299,6 +311,7 @@ package artifact.controllers
 			ro.source=ArtifactServiceConstants.GAME_SERVICE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,grantBuyProgressResultHandler);
+			
 			ro.grantBuyProgress(gameProgress);	
 		 }
 		 
@@ -317,7 +330,7 @@ package artifact.controllers
 		 
 		  /**
 		 * Grant Share Progress
-		 * This method gives user the share progress
+		 * This method gives the share progress
 		 * 
 		 **/
 		 public function grantShareProgress(gameProgress:GameProgress):void{
@@ -327,6 +340,7 @@ package artifact.controllers
 			ro.source=ArtifactServiceConstants.GAME_SERVICE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,grantShareProgressResultHandler);
+			
 			ro.grantShareProgress(gameProgress);	
 		 }
 		 
@@ -343,7 +357,7 @@ package artifact.controllers
 		 
 		 /**
 		 * 
-		 * If sombody got this artifact then this function  take care of disabling the 
+		 * If somebody got this artifact then this function takes care of disabling the 
 		 * current search party
 		 **/
 		 public function genericProgressResultHandler(event:ResultEvent):Boolean{
@@ -362,7 +376,7 @@ package artifact.controllers
 		 }
 		 
 		 /**
-		 * If artifact is obtained we need to call this function 
+		 * If the artifact is obtained we need to call this function 
 		 * this function take care of adding the item into the inventory 
 		 * and making the item inactive 
 		 * 
@@ -370,7 +384,6 @@ package artifact.controllers
 		 public function artifactObtainedResultHandler(event:ResultEvent):void{
 		 	var gameProgressResponse:GameProgressResponse=event.result as GameProgressResponse;
 		 	if(gameProgressResponse.isActifactObtained){
-		 		//means u get the artifact hurray :)
 		 		//change game profile
 		 		ArtifactUIController.gameProfile=gameProgressResponse.updatedGameProfile;
 		 		//add item into inventory
@@ -386,7 +399,7 @@ package artifact.controllers
 		 }
 		 
 		 /**
-		 * This method add skill points 
+		 * This method adds skill points 
 		 * 
 		 **/
 		 public function addSkill(type:String):void{
@@ -396,6 +409,7 @@ package artifact.controllers
 			ro.source=ArtifactServiceConstants.GET_PROFILE;
 			ro.addEventListener(FaultEvent.FAULT,myFaultHandler);
 			ro.addEventListener(ResultEvent.RESULT,addSkillResultHandler);
+			
 			ro.addSkill(type);	
 		 }
 		 
@@ -425,6 +439,7 @@ package artifact.controllers
 			ro.addEventListener(ResultEvent.RESULT,sellArtifactResultHandler);
 			ro.showBusyCursor=true;
 			ArtifactQuest.artifactUIController.removeItemFromInventoryUI(inventoryItem);
+			
 			ro.sellArtifact(artifactPrice,inventoryItem);
 				
 		 }
