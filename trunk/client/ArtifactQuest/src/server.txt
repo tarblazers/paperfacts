@@ -1,1 +1,1 @@
-/amfphp/gateway.php
+/Artifact/

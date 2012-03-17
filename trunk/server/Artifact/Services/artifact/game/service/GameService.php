@@ -65,19 +65,19 @@ class GameService {
             return null;
         }
 
-        $questioniar=array();
+        $questionnaire=array();
         for($count = 0 ;$count < 5 ; $count ++){//randomizing questions
-            $question=new Questioniar();
+            $question=new Questionnaire();
             $tempProperty=$properties[$randomIndex[$count]]->name;
             $question->question=$tempProperty;
             $randomOptions=$gameUtil->giveUniqueRandomOptions();
             $question->optionOne=$dataArray[$randomOptions[0]]->$tempProperty;//accessing random data element and getting its
             $question->optionTwo=$dataArray[$randomOptions[1]]->$tempProperty;
             $question->optionThree=$dataArray[$randomOptions[2]]->$tempProperty;
-            array_push($questioniar, $question);
+            array_push($questionnaire, $question);
         }
         
-        return $questioniar;
+        return $questionnaire;
 
     }
 
@@ -122,10 +122,11 @@ class GameService {
          }if($correntAnswers == 0 ){
              //no need of update if corrent answers is zero
              $gameResponse->isSomebodyGetArtifact=false;
+             $progressObtained = 0;
          }else{
              
              $progressObtained=($correntAnswers*5)*$currentUserGameProfile->spyLvl;
-             $gameProgress->csp->progress +=$progressObtained;
+             $gameProgress->csp->progress += $progressObtained;
              $currentSearchPartyUtil=new CurrentSearchPartyUtil;
              $updatedSearchParty=$currentSearchPartyUtil->updateCurrentSearchPartyProgress($gameProgress->csp);
               if($updatedSearchParty == null){

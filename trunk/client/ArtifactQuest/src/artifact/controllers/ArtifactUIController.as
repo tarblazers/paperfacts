@@ -13,7 +13,7 @@ package artifact.controllers
 	import mx.utils.ObjectUtil;
 	
 	/**
-	 * This class takes care of the ui iteraction and it knows when to hit the server side and when to display the cached data
+	 * This class takes care of the ui interaction and it knows when to hit the server side and when to display the cached data
 	 * 
 	 **/
 	public class ArtifactUIController
