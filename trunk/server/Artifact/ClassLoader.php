@@ -59,6 +59,9 @@ require_once AMFPHP_ROOTPATH.'/Plugins/AmfphpLogger/AmfphpLogger.php';
 
 require_once AMFPHP_ROOTPATH.'Services/artifact/db/connections/Connection.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/db/properties/Database.php';
+
+require_once AMFPHP_ROOTPATH.'Services/artifact/db/factory/DAOFactory.php';
+
 require_once AMFPHP_ROOTPATH.'Services/artifact/db/properties/ServerConstants.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/login/model/User.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/login/dao/LoginDAO.php';
@@ -76,7 +79,7 @@ require_once AMFPHP_ROOTPATH.'Services/artifact/friends/util/FriendsUtil.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/game/dao/GameDAO.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/GameProfile.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/game/util/GameUtil.php';
-require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/Questionnaire.php';
+require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/Questioniar.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/GameProgressResponse.php';
 require_once AMFPHP_ROOTPATH.'Services/artifact/game/model/ProgressType.php';
 

@@ -20,8 +20,12 @@ class ArtifactDAO {
      * @SQL SELECT * FROM artifactinfo where id not in (select id from currentsearchparty where userid = 2)
      */
     public function getArtifacts(User $user){
-        $con = Connection::createConnection();
-        $result = mysql_query("SELECT * FROM artifactinfo where id not in (select artifactid from currentsearchparty where userid = $user->id) AND isactive = 1");
+        //$con = Connection::createConnection();
+        //$result = mysql_query("SELECT * FROM artifactinfo where id not in (select artifactid from currentsearchparty where userid = $user->id) AND isactive = 1");
+        $queryString = "SELECT * FROM artifactinfo where id not in (select artifactid from currentsearchparty where userid = $user->id) AND isactive = 1";
+        $daoFactory = new DAOFactory();
+        $resultObj = $daoFactory->customQuery($queryString);
+        $result = $resultObj->result;
         $artifactList=array();
         while($row = mysql_fetch_array($result)){
             if($row['isactive'] == 1){
@@ -33,7 +37,7 @@ class ArtifactDAO {
                 array_push($artifactList, $artifact);
             }
         }
-        Connection::closeConnection($con);
+        //Connection::closeConnection($con);
         return $artifactList;
     }
 
@@ -48,6 +52,7 @@ class ArtifactDAO {
         $acrifactInactive=mysql_query("update artifactinfo set isactive = 0 where id = $artifact->id");
         mysql_query("commit");
         Connection::closeConnection($con);
+        
         return;
     }
 

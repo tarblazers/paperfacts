@@ -28,7 +28,7 @@ package artifact.controllers
 		{
 		}
 		public function myFaultHandler(event:FaultEvent):void{
-			Alert.show(event.message.toString(),'Server')
+			Alert.show(event.message.toString(),'Server Error')
 		}
 		
 		/**
