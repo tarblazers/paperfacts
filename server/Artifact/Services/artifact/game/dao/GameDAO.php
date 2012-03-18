@@ -49,6 +49,7 @@ class GameDAO {
             $friendUser=$gameProgress->friend->user;
             //could also contain user's info 
             $result=mysql_query("select * from userprofile where userprofile.userid !=$friendUser->id order by rand() limit 2");
+           
             $dataArray=array();
             while($row = mysql_fetch_array($result)){
                 $userprofile=new UserProfile();
@@ -64,8 +65,10 @@ class GameDAO {
                 $userprofile->politicalview=$row['politicalview'];
                 $userprofile->religion=$row['religion'];
                 $userprofile->school=$row['school'];
+                
                 array_push($dataArray, $userprofile);
             }
+            
             /* Getting data of friend whom we want to spy i.e. the right options */
             $friendProfile=$gameProgress->friend;
             array_push($dataArray, $friendProfile);

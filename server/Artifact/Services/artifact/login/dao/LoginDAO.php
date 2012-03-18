@@ -14,16 +14,16 @@ class LoginDAO {
     //put your code here
     
     public function isUsernameValid($username){
-        $conn = Connection::createConnection();
+        $daoFactory = new DAOFactory();
+        $queryString = "Select * From user Where username = '$username'";
+        $resultObj = $daoFactory->customQuery($queryString,false);
         
-        $result = mysql_query("Select * From user Where username = '$username'");
-        $loginid = -1;
-
-        $tempArray=mysql_fetch_array($result);
+        $rowCount = $resultObj->rowsReturned;
+        $tempArray = $resultObj->resultArray;
         
         $user = null;
         
-        if(mysql_num_rows($result) == 1){
+        if($rowCount == 1){
             
             //AmfphpLogger::logMessage("user authenticated");
             
@@ -31,7 +31,6 @@ class LoginDAO {
             $user->id=$tempArray['id'];
             $user->username=$tempArray['username'];
         }
-        Connection::closeConnection($conn);
 
         return $user;
         

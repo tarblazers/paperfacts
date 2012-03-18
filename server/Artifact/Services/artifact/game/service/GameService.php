@@ -24,7 +24,6 @@ class GameService {
             )
 
         );
-
         
     }
     
@@ -65,19 +64,22 @@ class GameService {
             return null;
         }
 
-        $questionnaire=array();
+        $questioniar=array();
         for($count = 0 ;$count < 5 ; $count ++){//randomizing questions
-            $question=new Questionnaire();
+            $question=new Questioniar();
             $tempProperty=$properties[$randomIndex[$count]]->name;
             $question->question=$tempProperty;
             $randomOptions=$gameUtil->giveUniqueRandomOptions();
             $question->optionOne=$dataArray[$randomOptions[0]]->$tempProperty;//accessing random data element and getting its
             $question->optionTwo=$dataArray[$randomOptions[1]]->$tempProperty;
             $question->optionThree=$dataArray[$randomOptions[2]]->$tempProperty;
-            array_push($questionnaire, $question);
+            
+            //AmfphpLogger::logMessage($question->optionOne);
+            
+            array_push($questioniar, $question);
         }
         
-        return $questionnaire;
+        return $questioniar;
 
     }
 
